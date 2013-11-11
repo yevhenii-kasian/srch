@@ -47,7 +47,6 @@ namespace srch
         {
             if (siteListView.SelectedItems.Count != 0 && siteList.Count > 0)
             {
-                removeToolStripMenuItem.Enabled = true;
                 sitesMenu.Update();
                 siteList.RemoveAt(siteListView.SelectedItems[0].Index);
                 siteListView.SelectedItems[0].Remove();
@@ -60,7 +59,6 @@ namespace srch
         {
             if (siteListView.SelectedItems.Count != 0)
             {
-                editToolStripMenuItem.Enabled = true;
                 sitesMenu.Update();
                 int indx = siteListView.SelectedItems[0].Index;
                 EditSiteForm editSite = new EditSiteForm();
@@ -70,6 +68,11 @@ namespace srch
                 editSite.filterTextBox.Text = siteList.ElementAt(indx).Filter;
                 editSite.ShowDialog();
             }
+        }
+
+        private void filterTextBox_TextChanged(object sender, System.EventArgs e)
+        {
+            siteList.ElementAt(siteListView.SelectedItems[0].Index).Filter = filterTextBox.Text;
         }
     }
 }

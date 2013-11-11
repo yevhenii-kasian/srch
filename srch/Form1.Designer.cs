@@ -37,11 +37,10 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataListView = new System.Windows.Forms.ListView();
-            this.colTopic = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.filterTextBox = new System.Windows.Forms.TextBox();
             this.siteListView = new System.Windows.Forms.ListView();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menu.SuspendLayout();
             this.sitesMenu.SuspendLayout();
             this.SuspendLayout();
@@ -84,18 +83,17 @@
             this.editToolStripMenuItem,
             this.removeToolStripMenuItem});
             this.sitesMenu.Name = "sitesMenu";
-            this.sitesMenu.Size = new System.Drawing.Size(153, 92);
+            this.sitesMenu.Size = new System.Drawing.Size(118, 70);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
-            this.editToolStripMenuItem.Enabled = false;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editToolStripMenuItem.Text = "Edit";
@@ -103,29 +101,10 @@
             // 
             // removeToolStripMenuItem
             // 
-            this.removeToolStripMenuItem.Enabled = false;
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
-            // 
-            // dataListView
-            // 
-            this.dataListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colTopic});
-            this.dataListView.FullRowSelect = true;
-            this.dataListView.GridLines = true;
-            this.dataListView.Location = new System.Drawing.Point(138, 27);
-            this.dataListView.MultiSelect = false;
-            this.dataListView.Name = "dataListView";
-            this.dataListView.Size = new System.Drawing.Size(534, 368);
-            this.dataListView.TabIndex = 3;
-            this.dataListView.UseCompatibleStateImageBehavior = false;
-            this.dataListView.View = System.Windows.Forms.View.Details;
-            // 
-            // colTopic
-            // 
-            this.colTopic.Text = "Topic";
             // 
             // label1
             // 
@@ -143,9 +122,11 @@
             this.filterTextBox.ReadOnly = true;
             this.filterTextBox.Size = new System.Drawing.Size(625, 20);
             this.filterTextBox.TabIndex = 5;
+            this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
             // siteListView
             // 
+            this.siteListView.CheckBoxes = true;
             this.siteListView.ContextMenuStrip = this.sitesMenu;
             this.siteListView.FullRowSelect = true;
             this.siteListView.GridLines = true;
@@ -158,15 +139,23 @@
             this.siteListView.View = System.Windows.Forms.View.List;
             this.siteListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.siteListView_MouseClick);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(140, 27);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(532, 368);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 462);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.siteListView);
             this.Controls.Add(this.filterTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataListView);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menu);
             this.MainMenuStrip = this.menu;
@@ -187,15 +176,14 @@
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
-        private System.Windows.Forms.ColumnHeader colTopic;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
-        internal System.Windows.Forms.ListView dataListView;
         internal System.Windows.Forms.TextBox filterTextBox;
         internal System.Windows.Forms.ListView siteListView;
         private System.Windows.Forms.ContextMenuStrip sitesMenu;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
